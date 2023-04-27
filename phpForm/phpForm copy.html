@@ -18,10 +18,11 @@
 </style>
 
 <body>
-  <form name="myform" action="phpForm.php" method="get">
-    <label for="cname">名字</label><input id="cname" type="text" name="cname">
+  <form name="myform" action="./phpForm.php" method="post">
+    <label for="cname">名字</label><input id="cname" type="text" name="cname" value="誠峻">
 
     <label for="number">電話</label><input id="number" type="text" name="number">
+
     <label for="age">年紀</label>
     <select name="age" id="age">
       <option value="20">20</option>
@@ -30,7 +31,8 @@
       <option value="22">22</option>
       <option value="22">22</option>
     </select>
-    <div class="adjust"> <input type="submit">
+    <div class="adjust">
+      <input type="submit">
       <input type="reset">
     </div>
 
