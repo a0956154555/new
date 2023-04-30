@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="all-banner">
+    <img src="./img/special/colleage690x195.gif" alt="">
+    <img src="./img/special/reincarnation.gif" alt="">
+    <img src="./img/brother-in-law/english/468X60.gif" alt="有嗎">
+  </div>
+  <script>
+    function createImg (text) {
+      allBanner.innerHTML += `<img src="${srctext}">`
+    }
+
+    const allBanner = document.querySelector(".all-banner")
+    const allSize = ["160X600", "300X100", "300X250", "315X300", "338X235", "468X60", "728X90", "950X250"]
+
+
+    let srctext = "./img/"
+    let resetName = ""
+    let flashName = ""
+    const allImg = [
+      {
+        cname: "brother-in-law",
+        langue: ["english", "tai", "simple", "traditional"],
+        size: allSize
+      },
+      {
+        cname: "dog",
+        langue: ["english"],
+        size: allSize
+      },
+      {
+        cname: "elves",
+        langue: ["english", "tai"],
+        size: allSize
+      },
+      {
+        cname: "snow-girl",
+        langue: ["simple", "traditional"],
+        size: allSize
+      },
+      {
+        cname: "ntr",
+        langue: ["simple"],
+        size: allSize
+      },
+    ]
+
+    allImg.forEach((item, key, thisArray) => {
+      srctext = "./img/"
+      srctext += item.cname
+
+      resetName = srctext
+
+      // 取得原始檔案名稱
+      item.langue.forEach(item2 => {
+        srctext = resetName
+        srctext = `${srctext}/${item2}`
+        flashName = srctext
+        // 
+        item.size.forEach(item => {
+          srctext = flashName
+          srctext = `${srctext}/${item}.gif`
+          createImg(srctext)
+        })
+      })
+      // console.log(srctext)
+    })
+  </script>
+</body>
+
+</html>
