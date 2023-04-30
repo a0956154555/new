@@ -21,6 +21,10 @@ if ($cyear % 4 == 0) {
 } else {
   echo "$cyear 不是閏年";
 }
+
+
+
+require_once("../text.php");
 // else{
 //   echo "$cyear 年不是閏年";
 // }
