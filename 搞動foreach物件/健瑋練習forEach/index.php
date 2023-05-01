@@ -36,51 +36,47 @@ $allImg = [
 // ./img/img1/1.jpg
 
 
-function createImg($text)
+function createImg($dom)
 {
-    return '<img src="' . $text . '" style="width:60px; height:60px;">';
+    return '<img src="' . $dom . '" alt="" style="width: 60px; height: 60px;">';
 }
-function changeLine()
-{
-    return '<br>';
-}
-$output = "";
-foreach ($allImg as $index => $item) {
-    $start = "./img/" . $item["cname"];
-    // echo $item["cname"];
-    $resetName = $start;
 
+$output = "";
+
+foreach ($allImg as $index => $item) {
+    $start = "./img/";
+    $start = "./img/" . $item["cname"];
+    $reset = $start;
+    // echo $reset;
     foreach ($item["listName"] as $index2 => $item2) {
-        // echo $item2;
-        $start = $resetName . "/" . $item2 . ".jpg";
+        $start =  $reset;
+        $start .= "/" . $item2 . ".jpg";
         $output .= createImg($start);
     }
-    $output .= changeLine();
 }
-
 echo $output;
-?>
+// ./img/img1/2.jpg
 
-<!-- function createImg($text) {
-    return '<img src="' . $text . '">';
-}
+// function createImg($text)
+// {
+// return '<img src="' . $text . '" style="width:60px; height:60px;">';
+// }
+// function changeLine()
+// {
+// return '<br>';
+// }
+// $output = "";
+// foreach ($allImg as $index => $item) {
+// $start = "./img/" . $item["cname"];
+// // echo $item["cname"];
+// $resetName = $start;
 
-$output = "";
-foreach ($allImg as $index=>$item) {
-    // $allImg[0][cname]
-    echo $index;
-    $srcText = "./img/" . $item["cname"];
+// foreach ($item["listName"] as $index2 => $item2) {
+// // echo $item2;
+// $start = $resetName . "/" . $item2 . ".jpg";
+// $output .= createImg($start);
+// }
+// $output .= changeLine();
+// }
 
-    $resetName = $srcText;
-
-    foreach ($item["langue"] as $lang) {
-        $srcText = $resetName . "/" . $lang;
-        $flashName = $srcText;
-
-        foreach ($item["size"] as $size) {
-            $srcText = $flashName . "/" . $size . ".gif";
-            $output .= createImg($srcText);
-        }
-    }
-}
-echo $output; -->
+// echo $output;
