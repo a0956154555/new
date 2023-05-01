@@ -1,4 +1,6 @@
 <?php
+
+// echo "123";
 $allImg = [
     [
         "cname" => "img1",
@@ -29,24 +31,34 @@ $allImg = [
         "listName" => ["1", "2", "3", "4", "5", "6", "7"]
     ]
 ];
+// echo $allImg[0]["cname"];
+// echo $allImg[0]["listName"][0];
+// ./img/img1/1.jpg
+
 
 function createImg($text)
 {
-    return '<img src="' . $text . '">';
+    return '<img src="' . $text . '" style="width:60px; height:60px;">';
+}
+function changeLine()
+{
+    return '<br>';
 }
 $output = "";
 foreach ($allImg as $index => $item) {
     $start = "./img/" . $item["cname"];
-
+    // echo $item["cname"];
     $resetName = $start;
 
-    foreach ($item["listName"] as $listName) {
-        $start = $resetName . "/" . $listName;
+    foreach ($item["listName"] as $index2 => $item2) {
+        // echo $item2;
+        $start = $resetName . "/" . $item2 . ".jpg";
         $output .= createImg($start);
     }
+    $output .= changeLine();
 }
 
-
+echo $output;
 ?>
 
 <!-- function createImg($text) {
