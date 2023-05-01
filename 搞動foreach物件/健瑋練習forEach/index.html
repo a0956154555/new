@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="all-banner">
+        <!-- <img src="./img/img1/2.jpg" alt="" style="width: 60px; height: 60px;"> -->
+    </div>
+</body>
+<script>
+
+
+    const allBanner = document.querySelector(".all-banner");
+    // const allPic = [1,2,3,4,5,6,7];
+    let start = "./img/"
+    const allImg = [
+        {
+            cname: "img1",
+            listName: ["1", "2", "3", "4", "5", "6", "7"]
+        },
+        {
+            cname: "img2",
+            listName: ["1", "2", "3", "4", "5", "6", "7"]
+        },
+        {
+            cname: "img3",
+            listName: ["1", "2", "3", "4", "5", "6", "7"]
+        },
+        {
+            cname: "img4",
+            listName: ["1", "2", "3", "4", "5", "6", "7"]
+        },
+        {
+            cname: "img5",
+            listName: ["1", "2", "3", "4", "5", "6", "7"]
+        },
+        {
+            cname: "img6",
+            listName: ["1", "2", "3", "4", "5", "6", "7"]
+        },
+        {
+            cname: "img7",
+            listName: ["1", "2", "3", "4", "5", "6", "7"]
+        }
+    ]
+    function createImg(dom) {
+        allBanner.innerHTML += `<img src="${dom}" alt="" style="width: 60px; height: 60px;">`
+    }
+
+    allImg.forEach((item, key, thisArray) => {
+        allBanner.innerHTML += `這是第${key + 1}組`
+        start += item.cname
+        resetName1 = start
+
+        item.listName.forEach(item2 => {
+            start = resetName1
+            start = `${start}/${item2}.jpg`;
+            createImg(start)
+            start = "./img/";
+
+
+        })
+        allBanner.innerHTML += `<br>`
+        // allBanner.innerHTML += `這是第${key + 1}組`
+    }
+
+
+
+    )
+</script>
+
+</html>
