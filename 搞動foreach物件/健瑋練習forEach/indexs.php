@@ -38,7 +38,10 @@ $allImg = [
 
 function createImg($dom)
 {
-    return '<img src="' . $dom . '" alt="" style="width: 60px; height: 60px;">';
+    return "<img src=$dom alt=''style='width: 60px; height: 60px;'>";
+    //老師有幫你改一下上面那個程式碼更為簡潔了，要善用雙引號，可以直接放入變數的特性喔！
+    
+    //  return '<img src="' . $dom . '" alt="" style="width: 60px; height: 60px;">';
 }
 
 $output = "";
