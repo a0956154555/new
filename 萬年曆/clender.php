@@ -111,14 +111,15 @@
   
     <?php
     
-     if($moveDay!=7){
+  if($moveDay!=7){
     for($j=1;$j<=$moveDay;$j++){
       echo"
       <div class='calendar-day'>
         <span></span>
      </div>";
      
-    }}
+    }
+  }
     for($i=1;$i<=$item;$i++){
     echo"<div class='calendar-day'>
         <span>$i</span>
