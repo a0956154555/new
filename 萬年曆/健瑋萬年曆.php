@@ -80,32 +80,47 @@
     // $bmi = number_format($cweight / ($cheight * $cheight), 1);
     // echo $cyear;
     // 要先明白閏年的規則 4年一潤 100年不潤 400年在潤一次
+    $February = 29;
+    $count =  $cyear % 400;
+    $day = 365;
+    if ($count % 4 == 0 && $count != 100) {
+        $day = 366;
+    } elseif ($count % 4 != 0) {
+        $day = 365;
+    };
+    // 2022 星期六 2023星期日 2024星期二
+
     if ($cyear % 4 == 0) {
 
         // 取得所有4的倍數
         if ($cyear % 100 == 0 && $cyear % 400 != 0) {
             // 肯定是閏年
+            $February = 28;
             echo "$cyear 年不是閏年";
         } elseif ($cyear < 100 && $cyear % 4 == 0) {
+            $February = 29;
             echo "$cyear 年是閏年";
         } else {
             if ($cyear % 400 == 0) {
+                $February = 29;
                 echo "$cyear 年是閏年";
             }
         }
     } else {
+        $February = 28;
         echo "$cyear 不是閏年";
     }
+
     ?>
     <?php
-    $month = array("一月" => 31, "二月" => 28, "三月" => 31, "四月" => 30, "五月" => 31, "六月" => 30, "七月" => 31, "八月" => 31, "九月" => 30, "十月" => 31, "十一月" => 30, "十二月" => 31);
-    $moveDay = 0
+    $month = array("一月" => 31, "二月" => $February, "三月" => 31, "四月" => 30, "五月" => 31, "六月" => 30, "七月" => 31, "八月" => 31, "九月" => 30, "十月" => 31, "十一月" => 30, "十二月" => 31);
+    $moveDay = 0;
     ?>
     <?php foreach ($month as $index => $item) {
 
     ?>
         <div class="calendar">
-            <div class="calendar-header"><?php echo $index ?>2023</div>
+            <div class="calendar-header"><?php echo $index, $cyear ?></div>
             <div style="color: red;" class="calendar-day">
                 <span>日</span>
             </div>
